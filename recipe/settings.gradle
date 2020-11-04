@@ -1,0 +1,4 @@
+rootProject.name = 'recipe'
+
+include 'recipe-domain'
+include 'recipe-application'
