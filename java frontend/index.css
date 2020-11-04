@@ -1,0 +1,25 @@
+.icon {
+    position: absolute;
+    width: 3%;
+}
+
+.banner {
+    background-image: url("./bg.jpg");
+    height: 300px;
+    color: white;
+    margin-bottom: 0;
+}
+
+.banner h1 {
+    font-size: 4em;
+    padding-left: 55%;
+    text-shadow: 1px 2px 1px black;
+}
+
+.banner h4 {
+    padding-left: 60%;
+}
+
+.card-image {
+    height: 240px;
+}
