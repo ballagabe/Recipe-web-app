@@ -13,38 +13,29 @@ import com.web.recipe.repository.UserRepository;
 
 
 @Component
-public class TestData {
-
-	@Autowired
-	private UserRepository userRepository;
+public class CreateRecipe {
 	
 	@Autowired
 	private RecipeRepository recipeRepository;
 	
+	@Autowired
+	private UserRepository userRepository;
+	
 	@Transactional
-	public void createTestData() {
-		User adam = createUser("Adam", "Adam90", "adam@test.com", "str0ngpassw0rd");
-		userRepository.save(adam);
-		Recipe piritos = createRecipe("piritos", "sos kenyer", "fozd", "img", RecipeType.type1);
-		recipeRepository.save(piritos);
+	public void createAndSaveRecipe(String name, String ingredients, String description, String img, RecipeType type, int userId) {
+		User user = userRepository.findById(userId).get();
+		Recipe newRecipe = createRecipe(name, ingredients, description, img, type, user);
+		recipeRepository.save(newRecipe);
 	}
 
-	private User createUser(String name, String nickname, String email, String password) {
-		User user = new User();
-		user.setName(name);
-		user.setNickname(nickname);
-		user.setEmail(email);
-		user.setPassword(password);
-		return user;
-	}
-
-	private Recipe createRecipe(String name, String ingredients, String description, String img, RecipeType type) {
+	private Recipe createRecipe(String name, String ingredients, String description, String img, RecipeType type, User user) {
 		Recipe recipe = new Recipe();
 		recipe.setName(name);
 		recipe.setIngredients(ingredients);
 		recipe.setDescription(description);
 		recipe.setImg(img);
 		recipe.setType(type);
+		recipe.setUser(user);
 		return recipe;
 	}
 }

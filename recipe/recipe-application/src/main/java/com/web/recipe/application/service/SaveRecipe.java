@@ -30,17 +30,15 @@ public class SaveRecipe {
 	}
 
 	
-	public SavedRecipes saveRecipes(int recipeId) {
+	public void saveRecipes(int userId, int recipeId) {
 		Recipe recipe = recipeRepository.findById(recipeId).get();
-		User user = userRepository.findByEmail("adam@test.com");
+		User user = userRepository.findById(userId).get();
 		
 		SavedRecipes savedRecipe = new SavedRecipes();
 		savedRecipe.setRecipe(recipe);
 		savedRecipe.setUser(user);
 		
-		return savedRecipesRepository.save(savedRecipe);
-		
-		
+		savedRecipesRepository.save(savedRecipe);
 	}
 	
 	
