@@ -5,6 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.web.recipe.repository.RecipeRepository;
+import com.web.recipe.repository.SavedRecipesRepository;
+import com.web.recipe.repository.UserRepository;
+
 @Entity
 public class SavedRecipes {
 
@@ -17,4 +23,31 @@ public class SavedRecipes {
 	
 	@ManyToOne
 	private Recipe recipe;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Recipe getRecipe() {
+		return recipe;
+	}
+
+	public void setRecipe(Recipe recipe) {
+		this.recipe = recipe;
+	}
+	
+	
+
 }
