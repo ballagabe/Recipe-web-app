@@ -1,7 +1,10 @@
 package com.web.recipe.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -9,12 +12,12 @@ import javax.persistence.ManyToOne;
 public class Recipe {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@ManyToOne
 	private User user;
-	
+
 	private String name;
 
 	private String ingredients;
@@ -23,6 +26,7 @@ public class Recipe {
 	
 	private String img;
 	
+	@Enumerated(EnumType.STRING)
 	private RecipeType type;
 	
 	public int getId() {
@@ -31,6 +35,14 @@ public class Recipe {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getName() {

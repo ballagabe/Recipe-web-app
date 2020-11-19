@@ -7,15 +7,21 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-import com.web.recipe.application.service.SaveRecipe;
-import com.web.recipe.application.service.TestData;
+import com.web.recipe.application.service.*;
+import com.web.recipe.domain.*;
 
 @SpringBootApplication
 public class RecipeApplication {
 
 	
 	@Autowired
-	private TestData testDataGenerator;
+	private CreateUser createUser;
+	
+	@Autowired
+	private CreateRecipe createRecipe;
+	
+	@Autowired
+	private CreateIngredients createIngredients;
 	
 	@Autowired
 	private SaveRecipe saveRecipe;
@@ -23,6 +29,8 @@ public class RecipeApplication {
 	@Autowired
 	private RecipeApplication recipeApplication;
 	
+	@Autowired
+	private GetRecipes getRecipes;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(RecipeApplication.class, args);
@@ -35,13 +43,22 @@ public class RecipeApplication {
             
         }; 
     } 
-	 
+	  
 	
 	public void writeToConsole() {
-		testDataGenerator.createTestData();
+		createUser.createAndSaveUser("Zsofi", "Zsofi123", "zsofi@gmail.com", "jelszo");
+		createUser.createAndSaveUser("Gabor", "Gabor123", "gabor@gmail.com", "jelszo");
 		
-		saveRecipe.saveRecipes(2);
-	}
+		createRecipe.createAndSaveRecipe("piritos", "so kenyer", "fozd", "img", 1, 1);
+		createRecipe.createAndSaveRecipe("hamburger", "hus pogacsa", "fozd es susd", "img", 3, 2);
+		
+		createIngredients.createAndSaveIngredients(1, "Só");
+		
+		saveRecipe.saveRecipes(1,1);
+		
+		System.out.println(getRecipes.getRandomRecipe().getName());
+		System.out.println(getRecipes.getOwnRecipes(2).get(0).getName()); 
+	} 
 	
 
 }
