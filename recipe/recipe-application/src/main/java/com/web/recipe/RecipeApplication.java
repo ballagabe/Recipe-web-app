@@ -49,8 +49,14 @@ public class RecipeApplication {
 		createUser.createAndSaveUser("Zsofi", "Zsofi123", "zsofi@gmail.com", "jelszo");
 		createUser.createAndSaveUser("Gabor", "Gabor123", "gabor@gmail.com", "jelszo");
 		
+<<<<<<< HEAD
 		createRecipe.createAndSaveRecipe("piritos", "so kenyer", "fozd", "img", 1, 1);
 		createRecipe.createAndSaveRecipe("hamburger", "hus pogacsa", "fozd es susd", "img", 3, 2);
+=======
+		
+		createRecipe.createAndSaveRecipe("piritos", "so kenyer", "fozd", "img", RecipeType.type1, 1);
+		createRecipe.createAndSaveRecipe("hamburger", "hus pogacsa", "fozd es susd", "img", RecipeType.type3, 2);
+>>>>>>> d3150877a373678ca4377f4714befdd274fdda44
 		
 		createIngredients.createAndSaveIngredients(1, "Só");
 		
