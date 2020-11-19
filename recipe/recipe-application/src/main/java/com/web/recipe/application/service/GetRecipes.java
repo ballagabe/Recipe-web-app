@@ -1,9 +1,5 @@
 package com.web.recipe.application.service;
 
-<<<<<<< HEAD
-=======
-import java.util.ArrayList;
->>>>>>> d3150877a373678ca4377f4714befdd274fdda44
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -29,24 +25,15 @@ public class GetRecipes {
 	
 	@Transactional
 	public Recipe getRandomRecipe() {
-<<<<<<< HEAD
 		List<Recipe> recipe = (List<Recipe>) recipeRepository.findAll();
-=======
-		ArrayList<Recipe> recipe = (ArrayList<Recipe>) recipeRepository.findAll();
->>>>>>> d3150877a373678ca4377f4714befdd274fdda44
 		Random rnd = new Random();
 		int random = rnd.nextInt(recipe.size());
 		return recipe.get(random);
 	}
 	
 	@Transactional
-<<<<<<< HEAD
 	public List<Recipe> getAllRecipe() {
 		List<Recipe> recipes = (List<Recipe>) recipeRepository.findAll();
-=======
-	public ArrayList<Recipe> getAllRecipe() {
-		ArrayList<Recipe> recipes = (ArrayList<Recipe>) recipeRepository.findAll();
->>>>>>> d3150877a373678ca4377f4714befdd274fdda44
 		return recipes;
 	}
 	
