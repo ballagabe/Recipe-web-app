@@ -5,17 +5,17 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.web.recipe.domain.Ingredients;
+import com.web.recipe.domain.Ingredient;
 import com.web.recipe.domain.User;
-import com.web.recipe.repository.IngredientsRepository;
+import com.web.recipe.repository.IngredientRepository;
 import com.web.recipe.repository.UserRepository;
 
 
 @Component
-public class CreateIngredients {
+public class IngredientServices {
 
 	@Autowired
-	private IngredientsRepository ingredientsRepository;
+	private IngredientRepository ingredientRepository;
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -23,12 +23,12 @@ public class CreateIngredients {
 	@Transactional
 	public void createAndSaveIngredients(int userId, String name) {
 		User user = userRepository.findById(userId).get();
-		Ingredients newIngredients = createIngredients(user, name);
-		ingredientsRepository.save(newIngredients);
+		Ingredient newIngredients = createIngredients(user, name);
+		ingredientRepository.save(newIngredients);
 	}
 	
-	private Ingredients createIngredients (User user, String name) {
-		Ingredients ingr = new Ingredients();
+	private Ingredient createIngredients (User user, String name) {
+		Ingredient ingr = new Ingredient();
 		ingr.setName(name);
 		ingr.setUser(user);
 		return ingr;

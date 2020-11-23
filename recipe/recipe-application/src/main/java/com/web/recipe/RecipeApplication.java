@@ -14,22 +14,16 @@ public class RecipeApplication {
 
 	
 	@Autowired
-	private CreateUser createUser;
+	private UserServices userServices;
 	
 	@Autowired
-	private CreateRecipe createRecipe;
+	private RecipeServices recipeServices;
 	
 	@Autowired
-	private CreateIngredients createIngredients;
-	
-	@Autowired
-	private SaveRecipe saveRecipe;
+	private IngredientServices ingredientServices;
 	
 	@Autowired
 	private RecipeApplication recipeApplication;
-	
-	@Autowired
-	private GetRecipes getRecipes;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(RecipeApplication.class, args);
@@ -45,19 +39,17 @@ public class RecipeApplication {
 	  
 	
 	public void writeToConsole() {
-		createUser.createAndSaveUser("Zsofi", "Zsofi123", "zsofi@gmail.com", "jelszo");
-		createUser.createAndSaveUser("Gabor", "Gabor123", "gabor@gmail.com", "jelszo");
+		userServices.createAndSaveUser("Zsofi", "Zsofi123", "zsofi@gmail.com", "jelszo");
+		userServices.createAndSaveUser("Gabor", "Gabor123", "gabor@gmail.com", "jelszo");
 		
-		createRecipe.createAndSaveRecipe("piritos", "so kenyer", "fozd", "img", 1, 1);
-		createRecipe.createAndSaveRecipe("hamburger", "hus pogacsa", "fozd es susd", "img", 3, 2);
+		recipeServices.createAndSaveRecipe("piritos", "so kenyer", "fozd", "img", 1, 1);
+		recipeServices.createAndSaveRecipe("hamburger", "hus pogacsa", "fozd es susd", "img", 3, 2);
 		
-		createIngredients.createAndSaveIngredients(1, "Só");
+		ingredientServices.createAndSaveIngredients(1, "Só");
 		
-		saveRecipe.saveRecipes(1,1);
+		recipeServices.saveRecipe(1,1);
 		
-		System.out.println(getRecipes.getRandomRecipe().getName());
-		System.out.println(getRecipes.getOwnRecipes(2).get(0).getName()); 
-	} 
-	
-
+		System.out.println(recipeServices.getRandomRecipe().getName());
+		System.out.println(recipeServices.getOwnRecipes(2).get(0).getName()); 
+	}
 }

@@ -10,7 +10,7 @@ import com.web.recipe.repository.UserRepository;
 
 
 @Component
-public class CreateUser {
+public class UserServices {
 
 	@Autowired
 	private UserRepository userRepository;

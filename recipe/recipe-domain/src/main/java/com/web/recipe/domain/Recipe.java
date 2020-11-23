@@ -21,7 +21,7 @@ public class Recipe {
 	private String name;
 
 	private String ingredients;
-
+	
 	private String description;
 	
 	private String img;

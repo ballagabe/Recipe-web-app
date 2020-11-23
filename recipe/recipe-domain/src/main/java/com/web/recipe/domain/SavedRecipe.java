@@ -6,14 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.web.recipe.repository.RecipeRepository;
-import com.web.recipe.repository.SavedRecipesRepository;
-import com.web.recipe.repository.UserRepository;
-
 @Entity
-public class SavedRecipes {
+public class SavedRecipe {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
