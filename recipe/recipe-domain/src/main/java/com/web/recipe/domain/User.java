@@ -28,6 +28,8 @@ public class User {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Recipe> recipes;
 
+	private UserType userType;
+	
 	public int getId() {
 		return id;
 	}
@@ -74,5 +76,13 @@ public class User {
 
 	public void setRecipes(List<Recipe> recipes) {
 		this.recipes = recipes;
+	}
+
+	public UserType getUserType() {
+		return userType;
+	}
+
+	public void setUserType(UserType userType) {
+		this.userType = userType;
 	}
 }

@@ -20,7 +20,7 @@ public class IndexController {
 	@GetMapping("/")
     public String index(Model model) {
 		List<GetRecipeRequestDomain> responseRecipeList = new ArrayList<>();
-		getRecipesService.getAllRecipe().forEach(r -> responseRecipeList.add(new GetRecipeRequestDomain(r.getName(), r.getIngredients(), r.getDescription(), r.getImg(), r.getType().toString())));
+		getRecipesService.getAllRecipe().forEach(r -> responseRecipeList.add(new GetRecipeRequestDomain(r.getName(), r.getIngredients(), r.getDescription(), r.getType().toString())));
 		model.addAttribute("recipes", responseRecipeList);
 		return "index";
     }

@@ -4,8 +4,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.web.recipe.domain.User;
+import com.web.recipe.domain.UserType;
 import com.web.recipe.repository.UserRepository;
 
 
@@ -15,6 +17,8 @@ public class UserServices {
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder; 
 	
 	@Transactional
 	public void createAndSaveUser(String name, String nickname, String email, String password) {
@@ -27,7 +31,8 @@ public class UserServices {
 		user.setName(name);
 		user.setNickname(nickname);
 		user.setEmail(email);
-		user.setPassword(password);
+		user.setPassword(passwordEncoder.encode(password));
+		user.setUserType(UserType.CUSTOMER);
 		return user;
 	}
 }

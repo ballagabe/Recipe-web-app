@@ -71,18 +71,17 @@ public class RecipeServices {
 	
 	//Create
 	@Transactional
-	public void createAndSaveRecipe(String name, String ingredients, String description, String img, int type, int userId) {
+	public void createAndSaveRecipe(String name, String ingredients, String description, int type, int userId) {
 		User user = userRepository.findById(userId).get();
-		Recipe newRecipe = createRecipe(name, ingredients, description, img, RecipeType.values()[type], user);
+		Recipe newRecipe = createRecipe(name, ingredients, description, RecipeType.values()[type], user);
 		recipeRepository.save(newRecipe);
 	}
 
-	private Recipe createRecipe(String name, String ingredients, String description, String img, RecipeType type, User user) {
+	private Recipe createRecipe(String name, String ingredients, String description, RecipeType type, User user) {
 		Recipe recipe = new Recipe();
 		recipe.setName(name);
 		recipe.setIngredients(ingredients);
 		recipe.setDescription(description);
-		recipe.setImg(img);
 		recipe.setType(type);
 		recipe.setUser(user);
 		return recipe;

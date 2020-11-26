@@ -15,7 +15,7 @@ public class AddRecipeController {
 	
 	@PostMapping("addRecipe")
     public String addRecipe(AddRecipeRequestDomain requestRecipe) {
-		createRecipe.createAndSaveRecipe(requestRecipe.getName(), requestRecipe.getIngredients(), requestRecipe.getDescription(), requestRecipe.getImg(), requestRecipe.getType(), requestRecipe.getUserId());
+		createRecipe.createAndSaveRecipe(requestRecipe.getName(), requestRecipe.getIngredients(), requestRecipe.getDescription(), requestRecipe.getType(), requestRecipe.getUserId());
 		return "redirect:index";
     }
 }

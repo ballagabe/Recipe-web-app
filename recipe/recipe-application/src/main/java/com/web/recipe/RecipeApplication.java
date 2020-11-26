@@ -42,14 +42,11 @@ public class RecipeApplication {
 		userServices.createAndSaveUser("Zsofi", "Zsofi123", "zsofi@gmail.com", "jelszo");
 		userServices.createAndSaveUser("Gabor", "Gabor123", "gabor@gmail.com", "jelszo");
 		
-		recipeServices.createAndSaveRecipe("piritos", "so kenyer", "fozd", "img", 1, 1);
-		recipeServices.createAndSaveRecipe("hamburger", "hus pogacsa", "fozd es susd", "img", 3, 2);
+		recipeServices.createAndSaveRecipe("piritos", "so kenyer", "fozd", 1, 1);
+		recipeServices.createAndSaveRecipe("hamburger", "hus pogacsa", "fozd es susd", 3, 2);
 		
 		ingredientServices.createAndSaveIngredients(1, "Só");
 		
 		recipeServices.saveRecipe(1,1);
-		
-		System.out.println(recipeServices.getRandomRecipe().getName());
-		System.out.println(recipeServices.getOwnRecipes(2).get(0).getName()); 
 	}
 }

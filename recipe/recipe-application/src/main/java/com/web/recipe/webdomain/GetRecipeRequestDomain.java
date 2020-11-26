@@ -7,16 +7,13 @@ public class GetRecipeRequestDomain{
 	
 	private final String description;
 	
-	private final String img;
-	
 	private final String type;
 
-	public GetRecipeRequestDomain(String name, String ingredients, String description, String img, String type) {
+	public GetRecipeRequestDomain(String name, String ingredients, String description, String type) {
 		super();
 		this.name = name;
 		this.ingredients = ingredients;
 		this.description = description;
-		this.img = img;
 		this.type = type;
 	}
 
@@ -30,10 +27,6 @@ public class GetRecipeRequestDomain{
 
 	public String getDescription() {
 		return description;
-	}
-
-	public String getImg() {
-		return img;
 	}
 
 	public String getType() {
