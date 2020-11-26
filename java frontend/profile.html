@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Spring - Recipe web app</title>
+    <link href="bs5/css/bootstrap.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+</head>
+<body>
+<!---HEADER------------------------------------------------------------------------------------------------------>
+    <header>
+        <!--menü-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-book" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M1 2.828v9.923c.918-.35 2.107-.692 3.287-.81 1.094-.111 2.278-.039 3.213.492V2.687c-.654-.689-1.782-.886-3.112-.752-1.234.124-2.503.523-3.388.893zm7.5-.141v9.746c.935-.53 2.12-.603 3.213-.493 1.18.12 2.37.461 3.287.811V2.828c-.885-.37-2.154-.769-3.388-.893-1.33-.134-2.458.063-3.112.752zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                    </svg>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="nabar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link active" aria-current="page">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#mostPopular" class="nav-link">Most popular</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                Foods
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a href="#" class="dropdown-item">Breakfast</a></li>
+                                <li><a href="#" class="dropdown-item">Dinner</a></li>
+                                <li><a href="#" class="dropdown-item">Dessert</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a href="#" class="dropdown-item">Soup</a></li>
+                                <li><a href="#" class="dropdown-item">Salad</a></li>
+                                <li><a href="#" class="dropdown-item">Snack</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="./register.html" class="nav-link">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./login.html" class="nav-link">Log In</a>
+                        </li>
+                        <li class="nav-item" hidden="true">
+                            <a href="#" class="nav-link">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--főcím-->
+        <section class="jumbotron-fluid text-center banner">
+            <!--
+            <div class="container">
+                <div class="row pt-5">
+                </div>
+                <div class="row pt-5">
+                -->
+                    <div class="hero-image">
+                        <div class="hero-text">
+                          <h1 style="font-size:50px">Food Diaries</h1>
+                          <h3>Fresh Cooked Food, at Your Home</h3>
+                        </div>
+                      </div>
+                    <!--
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4" >
+                        <h1>Food Diaries</h1>
+                        <h4>Fresh Cooked Food, at Your Home</h4>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+            -->
+        </section>
+    </header>
+
+<!----MAIN----------------------------------------------------------------------------------------------------->
+    <main role="main">
+        <div class="container py-5">
+            <div class="row">
+                <table style="height: 100px;">
+                      <tr>
+                        <td class="align-baseline col-md-2">
+                            <img class="img-thumbnail" style="width: 200px" src="pics/profile.jpg" alt="">
+                        </td>
+                        <td class="align-bottom col-md-10">
+                            <h2>Nickname</h2>
+                        </td>
+                      </tr>
+                  </table>
+            </div>
+            <div class="row pt-3">
+                <!--PROFILE MENU-->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#myDiary" role="tab" aria-controls="home"
+                        aria-selected="true">My Diary</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#favorite" role="tab" aria-controls="profile"
+                        aria-selected="false">Favorite</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#myAccount" role="tab" aria-controls="contact"
+                        aria-selected="false">My Account</a>
+                    </li>
+                  </ul>
+                  <!--PROFILE MENU-->
+                  <!--MENU TARTALOM-->
+                  <div class="tab-content" id="myTabContent">
+                    <!--myDiary-->
+                    <div class="tab-pane fade show active" id="myDiary" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="container my-5" id="mostPopular">
+                            <h1 class="text-left">My Recipes</h1>
+                            <!--cardgroup-->
+                            <div class="card-group my-3">
+                                <div class="row row-cols-1 row-cols-md-3 g-4">
+                                    <div class="col">
+                                        <!--card-->
+                                        <div class="card h-100 shadow-sm">
+                                            <img class="card-img-top" src="pics/food2.jpg">
+                                            <div class="card-body">
+                                                    <h4 class="card-title">Beef soup</h4>
+                                                    <p class="card-text">Best soup in the world!</p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <button type="button" class="btn btn-outline-secondary">View</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card -->
+                                    </div>
+                                    <div class="col">
+                                        <!--card-->
+                                        <div class="card h-100 shadow-sm">
+                                            <img class="card-img-top" src="pics/food3.jpg">
+                                            <div class="card-body">
+                                                    <h4 class="card-title">Beef soup</h4>
+                                                    <p class="card-text">Best soup in the world!</p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <button type="button" class="btn btn-outline-secondary">View</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card -->
+                                    </div>
+                                    <div class="col">
+                                        <!--card-->
+                                        <div class="card h-100 shadow-sm">
+                                            <img class="card-img-top" src="pics/food4.jpg">
+                                            <div class="card-body">
+                                                    <h4 class="card-title">Beef soup</h4>
+                                                    <p class="card-text">Best soup in the world!</p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <button type="button" class="btn btn-outline-secondary">View</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card -->
+                                    </div>
+                                    <div class="col">
+                                        <!--card-->
+                                        <div class="card h-100 shadow-sm">
+                                            <img class="card-img-top" src="pics/food4.jpg">
+                                            <div class="card-body">
+                                                    <h4 class="card-title">Beef soup</h4>
+                                                    <p class="card-text">Best soup in the world!</p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <button type="button" class="btn btn-outline-secondary">View</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--myDiary-->
+                    <!--favorite-->
+                    <div class="tab-pane fade" id="favorite" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="container my-5" id="mostPopular">
+                            <h1 class="text-left">Favortie Recipes</h1>
+                            <!--cardgroup-->
+                            <div class="card-group my-3">
+                                <div class="row row-cols-1 row-cols-md-3 g-4">
+                                    <div class="col">
+                                        <!--card-->
+                                        <div class="card h-100 shadow-sm">
+                                            <img class="card-img-top" src="pics/food2.jpg">
+                                            <div class="card-body">
+                                                    <h4 class="card-title">Beef soup</h4>
+                                                    <p class="card-text">Best soup in the world!</p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <button type="button" class="btn btn-outline-secondary">View</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card -->
+                                    </div>
+                                    <div class="col">
+                                        <!--card-->
+                                        <div class="card h-100 shadow-sm">
+                                            <img class="card-img-top" src="pics/food3.jpg">
+                                            <div class="card-body">
+                                                    <h4 class="card-title">Beef soup</h4>
+                                                    <p class="card-text">Best soup in the world!</p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <button type="button" class="btn btn-outline-secondary">View</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card -->
+                                    </div>
+                                    <div class="col">
+                                        <!--card-->
+                                        <div class="card h-100 shadow-sm">
+                                            <img class="card-img-top" src="pics/food4.jpg">
+                                            <div class="card-body">
+                                                    <h4 class="card-title">Beef soup</h4>
+                                                    <p class="card-text">Best soup in the world!</p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <button type="button" class="btn btn-outline-secondary">View</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card -->
+                                    </div>
+                                    <div class="col">
+                                        <!--card-->
+                                        <div class="card h-100 shadow-sm">
+                                            <img class="card-img-top" src="pics/food4.jpg">
+                                            <div class="card-body">
+                                                    <h4 class="card-title">Beef soup</h4>
+                                                    <p class="card-text">Best soup in the world!</p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <button type="button" class="btn btn-outline-secondary">View</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--favorite-->
+                    <!--myAccount-->
+                    <div class="tab-pane fade" id="myAccount" role="tabpanel" aria-labelledby="contact-tab">
+                        <div class="container mt-5">
+                            <div class="row">
+                                <h2>My Account</h2>
+                                <hr>
+                                <!--Profile Data-->
+                              <div class="col-md-4">
+                                  <h6>First name:</h6>
+                                  <p>First</p>
+                                  <h6>Last name:</h6>
+                                  <p>Last</p>
+                                  <h6>Nickname:</h6>
+                                  <p>Nick</p>
+                                  <h6>Email:</h6>
+                                  <p>valami@mail.com</p>
+
+                              </div>
+                              <div class="col-md-2"></div>
+                              <!--Edit Profile-->
+                              <div class="col-md-4">
+                                <h5>Edit Profile</h5>
+                                <form>
+                                  <div class="row mb-4">
+                                    <div class="col">
+                                      <div class="form-outline">
+                                        <label class="form-label" for="form3Example1">First name</label>
+                                        <input type="text" id="form3Example1" class="form-control" placeholder="First name"/>
+                                        
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="form-outline">
+                                        <label class="form-label" for="form3Example2">Last name</label>
+                                        <input type="text" id="form3Example2" class="form-control" placeholder="Last name"/>
+                                        
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- Nickname input -->
+                                  <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example3">Nickname</label>
+                                    <input type="text" id="form3Example3" class="form-control" placeholder="Nickname"/>
+                                  </div>
+                                
+                                  <!-- Email input -->
+                                  <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example3">Email address</label>
+                                    <input type="email" id="form3Example3" class="form-control" placeholder="Email"/>
+                                    
+                                  </div>
+                                
+                                  <!-- Password input -->
+                                  <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example4">Password</label>
+                                    <input type="password" id="form3Example4" class="form-control" placeholder="Password"/>
+                                    
+                                  </div>
+                                
+                                  <!-- Submit button -->
+                                  <button type="submit" class="btn btn-success btn-block mb-4">
+                                    Update Inof
+                                  </button>
+                                
+                                </form>
+                    
+                              </div>
+                              <div class="col-md-2"></div>
+                            </div>
+                          </div>
+                    </div>
+                    <!--myAccount-->
+                  </div>
+                  <!--MENU TARTALOM-->
+            </div>
+        </div>
+    </main>
+
+<!----FOOTER----------------------------------------------------------------------------------------------------->
+    <footer class="text-muted">
+    <div class="container py-5">
+        <p class="float-right">
+        <a href="#">Back to top</a>
+        </p>
+        <p>Food Diaries &copy; 4th team, have fun!</p>
+    </div>
+    </footer>
+
+    <!--
+    <footer class="bg-light text-center text-lg-left">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2020 Food Diaries:
+          <a class="text-dark" href="https://mdbootstrap.com/">fooddiary.com</a>
+        </div>
+      </footer>
+    -->
+    
+    <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.js"></script>
+    <script src="bs5/js/bootstrap.js"></script>
+</body>
+</html>
