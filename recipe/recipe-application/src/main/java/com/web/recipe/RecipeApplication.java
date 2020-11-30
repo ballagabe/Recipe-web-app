@@ -42,7 +42,7 @@ public class RecipeApplication {
 		userServices.createAndSaveUser("Zsofi", "Zsofi123", "zsofi@gmail.com", "jelszo");
 		userServices.createAndSaveUser("Gabor", "Gabor123", "gabor@gmail.com", "jelszo");
 		
-		recipeServices.createAndSaveRecipe("piritos", "so kenyer", "fozd", 1, 1);
+		recipeServices.createAndSaveRecipe("piritos", "so kenyer", "fozd", 0, 1);
 		recipeServices.createAndSaveRecipe("hamburger", "hus pogacsa", "fozd es susd", 3, 2);
 		
 		ingredientServices.createAndSaveIngredients(1, "Só");

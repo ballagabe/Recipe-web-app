@@ -26,6 +26,7 @@ public class UserServices {
 		userRepository.save(newUser);
 	}
 	
+	@Transactional
 	private User createUser(String name, String nickname, String email, String password) {
 		User user = new User();
 		user.setName(name);

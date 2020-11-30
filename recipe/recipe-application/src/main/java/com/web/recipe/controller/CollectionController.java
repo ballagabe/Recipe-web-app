@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class AddRecipeController {
-	@GetMapping("/addrecipe")
-	public String addrecipe() {
-		return "addrecipe"; 
+public class CollectionController {
+	@GetMapping("/collection")
+	public String collection() {
+		return "collection";
 	}
 }

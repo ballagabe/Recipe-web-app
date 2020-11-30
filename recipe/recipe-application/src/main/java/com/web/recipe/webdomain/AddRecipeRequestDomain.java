@@ -9,8 +9,6 @@ public class AddRecipeRequestDomain{
 	
 	private String description;
 	
-	private String img;
-	
 	private int type;
 
 	public String getName() {
@@ -43,14 +41,6 @@ public class AddRecipeRequestDomain{
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
 	}
 
 	public int getType() {

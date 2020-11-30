@@ -11,16 +11,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
- 
+	
     @Override
     protected void configure(HttpSecurity http) throws Exception {
     	http
+    		.csrf().disable()
         	.authorizeRequests()
-        	 	.antMatchers("/css/**").permitAll()        	
-        	 	.antMatchers("/h2-console/**").permitAll()
+        	 	.antMatchers("/css/**").permitAll()
+        	 	.antMatchers("/register").permitAll()
+        	 	.antMatchers("/registermethod").permitAll()
         	 	.anyRequest().authenticated()        	 
 	    	.and()
-	    	 	.csrf().ignoringAntMatchers("/h2-console/**")
+	    	 	.csrf().ignoringAntMatchers("/h2-console/**", "/registermethod", "/addrecipe")
 		 	.and()
 	    		.headers().frameOptions().sameOrigin() // h2-console access
 			.and()

@@ -1,6 +1,7 @@
 package com.web.recipe.controller;
 
 import java.util.List;
+import java.util.Random;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +16,16 @@ import com.web.recipe.webdomain.GetRecipeRequestDomain;
 public class IndexController {
 
 	@Autowired
-	private RecipeServices getRecipesService;
+	private RecipeServices getRecipesService; 
 	
 	@GetMapping("/")
     public String index(Model model) {
 		List<GetRecipeRequestDomain> responseRecipeList = new ArrayList<>();
-		getRecipesService.getAllRecipe().forEach(r -> responseRecipeList.add(new GetRecipeRequestDomain(r.getName(), r.getIngredients(), r.getDescription(), r.getType().toString())));
+		getRecipesService.getAllRecipe().forEach(r -> responseRecipeList.add(new GetRecipeRequestDomain(r.getId(), r.getName(), r.getIngredients(), r.getDescription(), r.getType().toString())));
+		Random rnd = new Random();
+		int random = rnd.nextInt(responseRecipeList.size());
 		model.addAttribute("recipes", responseRecipeList);
+		model.addAttribute("random", random);
 		return "index";
     }
 }
