@@ -57,21 +57,6 @@
                <button type="submit" class="btn btn-secondary btn-sm btn-block mb-4">
                		Record ingredient
                </button>
-               <!-- Img browse 
-                  <div class="form-outline mb-4">
-                          <label class="form-label" for="form3Example3">Img</label>
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01"
-                              aria-describedby="inputGroupFileAddon01">
-                          </div>
-                  </div>
-                  Img input 
-                  <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example3">Img URL</label>
-                  <input type="text" id="form3Example3" class="form-control" />
-                  </div>
-                  -->
-               <!-- Category input -->
                <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example4">Category</label>
                   <select name="cars" id="cars" class="form-control">

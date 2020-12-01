@@ -21,7 +21,7 @@
                             <p class="card-text">${recipes.get(random).description}</p>
                             <hr>
                             <div class="d-flex justify-content-between align-items-center">
-                                <button type="button" class="btn btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-outline-secondary"><a href="/recipe/${recipes.get(random).id}">View</a></button>
                             </div>
                         </div>
                     </div>
@@ -68,14 +68,13 @@
                 	<c:forEach items="${recipes}" var="recipe">
                     <div class="col">
                         <!--card-->
-                        
                         <div class="card h-100 shadow-sm">
                             <img class="card-img-top" src="css/image/food2.jpg">
                             <div class="card-body">
                                     <h4 class="card-title">${recipe.name}</h4>
                                     <p class="card-text">${recipe.description}</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <button type="button" class="btn btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-outline-secondary"><a href="/recipe/${recipe.id}">View</a></button>
                                     </div>
                             </div>
                         </div>

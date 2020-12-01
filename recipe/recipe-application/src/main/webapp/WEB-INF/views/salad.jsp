@@ -17,7 +17,7 @@
                                     <h4 class="card-title">${recipe.name}</h4>
                                     <p class="card-text">${recipe.description}</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <button type="button" class="btn btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-outline-secondary"><a href="/recipe/${recipe.id}">View</a></button>
                                     </div>
                             </div>
                         </div>
