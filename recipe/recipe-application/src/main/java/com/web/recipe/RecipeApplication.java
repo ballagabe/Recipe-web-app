@@ -1,5 +1,7 @@
 package com.web.recipe;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -8,6 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import com.web.recipe.application.service.*;
+import com.web.recipe.domain.User;
 
 @SpringBootApplication
 public class RecipeApplication {

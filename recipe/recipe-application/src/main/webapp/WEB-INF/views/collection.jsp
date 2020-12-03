@@ -2,21 +2,22 @@
 <%@ taglib  prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-
 <jsp:include page="_header.jsp"/>
-
-
-
+   <head>
+      <link href="../css/bootstrap.css" rel="stylesheet">
+      <link href="../css/index.css" rel="stylesheet">
+      <script src="../js/bootstrap.js"></script>
+   </head>
  <main role="main">
         <div class="container py-5">
             <div class="row">
                 <table style="height: 100px;">
                       <tr>
                         <td class="align-baseline col-md-2">
-                            <img class="img-thumbnail" style="width: 200px" src="css/image/profile.jpg" alt="">
+                            <img class="img-thumbnail" style="width: 200px" src="../css/image/profile.jpg" alt="">
                         </td>
                         <td class="align-bottom col-md-10">
-                            <h2>Nickname</h2>
+                            <h2><sec:authentication property="email"/></h2>
                         </td>
                       </tr>
                   </table>
@@ -184,14 +185,9 @@
                                 <hr>
                                 <!--Profile Data-->
                               <div class="col-md-4">
-                                  <h6>First name:</h6>
-                                  <p>First</p>
-                                  <h6>Last name:</h6>
-                                  <p>Last</p>
-                                  <h6>Nickname:</h6>
-                                  <p>Nick</p>
+                                  <h6>Name:</h6>
+	                              <h6>Nickname:</h6>
                                   <h6>Email:</h6>
-                                  <p>valami@mail.com</p>
 
                               </div>
                               <div class="col-md-2"></div>
@@ -202,15 +198,8 @@
                                   <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <label class="form-label" for="form3Example1">First name</label>
-                                        <input type="text" id="form3Example1" class="form-control" placeholder="First name"/>
-                                        
-                                      </div>
-                                    </div>
-                                    <div class="col">
-                                      <div class="form-outline">
-                                        <label class="form-label" for="form3Example2">Last name</label>
-                                        <input type="text" id="form3Example2" class="form-control" placeholder="Last name"/>
+                                        <label class="form-label" for="form3Example1">Name</label>
+                                        <input type="text" id="form3Example1" class="form-control" placeholder="Name"/>
                                         
                                       </div>
                                     </div>
@@ -220,21 +209,11 @@
                                     <label class="form-label" for="form3Example3">Nickname</label>
                                     <input type="text" id="form3Example3" class="form-control" placeholder="Nickname"/>
                                   </div>
-                                
-                                  <!-- Email input -->
-                                  <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example3">Email address</label>
-                                    <input type="email" id="form3Example3" class="form-control" placeholder="Email"/>
-                                    
-                                  </div>
-                                
                                   <!-- Password input -->
                                   <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example4">Password</label>
                                     <input type="password" id="form3Example4" class="form-control" placeholder="Password"/>
-                                    
                                   </div>
-                                
                                   <!-- Submit button -->
                                   <button type="submit" class="btn btn-success btn-block mb-4">
                                     Update

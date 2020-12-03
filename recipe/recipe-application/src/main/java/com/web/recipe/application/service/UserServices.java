@@ -1,5 +1,8 @@
 package com.web.recipe.application.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +37,18 @@ public class UserServices {
 		user.setEmail(email);
 		user.setPassword(passwordEncoder.encode(password));
 		user.setUserType(UserType.CUSTOMER);
+		return user;
+	}
+
+	@Transactional
+	public List<User> getOneUser(String email) {
+		List<User> users = (List<User>) userRepository.findAll();
+		List<User> user = new ArrayList<>();
+		for (var u : users) {
+			if(u.getEmail() == email) {
+				user.add(u);
+			}
+		}
 		return user;
 	}
 }
