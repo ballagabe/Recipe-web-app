@@ -64,7 +64,7 @@
                 	<c:forEach items="${searchrecipes}" var="recipe">
                     <div class="col">
                         <!--card-->
-                        <div class="card h-100 shadow-sm">
+                        <div class="card h-100 shadow-sm c_size">
                             <img class="card-img-top" src="css/image/food2.jpg">
                             <div class="card-body">
                                     <h4 class="card-title">${recipe.name}</h4>

@@ -51,7 +51,7 @@
                                 <c:forEach items="${ownRecipes}" var="ownRecipes">
                                     <div class="col">
                                         <!--card-->
-                                        <div class="card h-100 shadow-sm">
+                                        <div class="card h-100 shadow-sm c_size">
                                             <img class="card-img-top" src="css/image/food4.jpg">
                                             <div class="card-body">
                                                     <h4 class="card-title">${ownRecipes.name}</h4>
@@ -77,9 +77,9 @@
                             <div class="card-group my-3">
                                 <div class="row row-cols-1 row-cols-md-3 g-4">
                                     <c:forEach items="${favRecipes}" var="favRecipes">
-                                    <div class="col">
+                                    <div class="col c_size">
                                         <!--card-->
-                                        <div class="card h-100 shadow-sm">
+                                        <div class="card h-100 shadow-sm c_size">
                                             <img class="card-img-top" src="css/image/food4.jpg">
                                             <div class="card-body">
                                                     <h4 class="card-title">${favRecipes.name}</h4>
@@ -91,7 +91,7 @@
                                         </div>
                                         <!-- Card -->
                                     </div>
-                                </c:forEach>
+                                	</c:forEach>
                                 </div>
                             </div>
                         </div>

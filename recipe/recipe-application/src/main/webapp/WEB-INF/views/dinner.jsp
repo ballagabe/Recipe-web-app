@@ -10,8 +10,8 @@
             <div class="card-group my-3">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                 	<c:forEach items="${recipes}" var="recipe">
-                    <div class="col">
-                        <div class="card h-100 shadow-sm">
+                    <div class="col c_size">
+                        <div class="card h-100 shadow-sm c_size">
                             <img class="card-img-top" src="css/image/food2.jpg">
                             <div class="card-body">
                                     <h4 class="card-title">${recipe.name}</h4>
