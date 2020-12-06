@@ -1,10 +1,10 @@
 package com.web.recipe.domain;
 
 public enum RecipeType {
-	Breakfast,
-	Dinner,
-	Dessert,
-	Soup,
-	Salad,
-	Snack
+	type1,
+	type2,
+	type3,
+	type4,
+	type5,
+	type6
 }

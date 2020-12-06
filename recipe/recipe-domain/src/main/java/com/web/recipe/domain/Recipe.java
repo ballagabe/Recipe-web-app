@@ -21,8 +21,10 @@ public class Recipe {
 	private String name;
 
 	private String ingredients;
-	
+
 	private String description;
+	
+	private String img;
 	
 	@Enumerated(EnumType.STRING)
 	private RecipeType type;
@@ -65,6 +67,14 @@ public class Recipe {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	public RecipeType getType() {
