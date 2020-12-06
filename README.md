@@ -3,7 +3,6 @@
 ### Food diary
 Fejlesztők:
   - Wei Zsófia
-  - Fejér Norbert Sándor
   - Balla Gábor
 
 ### Az alkalmazás specifikációja:  
