@@ -25,9 +25,14 @@ public class User {
 
 	private String password;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<Recipe> recipes;
 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.PERSIST, orphanRemoval = true)
+	private List<SavedRecipe> savedRecipes;
+	
+	private UserType userType;
+	
 	public int getId() {
 		return id;
 	}
@@ -63,7 +68,7 @@ public class User {
 	public String getPassword() {
 		return password;
 	}
-
+ 
 	public void setPassword(String password) {
 		this.password = password;
 	}
@@ -74,5 +79,13 @@ public class User {
 
 	public void setRecipes(List<Recipe> recipes) {
 		this.recipes = recipes;
+	}
+
+	public UserType getUserType() {
+		return userType;
+	}
+
+	public void setUserType(UserType userType) {
+		this.userType = userType;
 	}
 }

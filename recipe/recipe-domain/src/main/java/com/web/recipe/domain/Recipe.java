@@ -1,12 +1,17 @@
 package com.web.recipe.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Recipe {
@@ -15,19 +20,20 @@ public class Recipe {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
 	private User user;
 
 	private String name;
 
 	private String ingredients;
-
-	private String description;
 	
-	private String img;
+	private String description;
 	
 	@Enumerated(EnumType.STRING)
 	private RecipeType type;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "recipe", cascade = CascadeType.PERSIST, orphanRemoval = true)
+	private List<SavedRecipe> savedRecipes;
 	
 	public int getId() {
 		return id;
@@ -67,14 +73,6 @@ public class Recipe {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
 	}
 
 	public RecipeType getType() {

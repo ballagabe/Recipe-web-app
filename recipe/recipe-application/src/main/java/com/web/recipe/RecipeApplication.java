@@ -8,29 +8,19 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import com.web.recipe.application.service.*;
-import com.web.recipe.domain.*;
 
 @SpringBootApplication
 public class RecipeApplication {
 
 	
 	@Autowired
-	private CreateUser createUser;
+	private UserServices userServices;
 	
 	@Autowired
-	private CreateRecipe createRecipe;
-	
-	@Autowired
-	private CreateIngredients createIngredients;
-	
-	@Autowired
-	private SaveRecipe saveRecipe;
+	private RecipeServices recipeServices;
 	
 	@Autowired
 	private RecipeApplication recipeApplication;
-	
-	@Autowired
-	private GetRecipes getRecipes;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(RecipeApplication.class, args);
@@ -46,20 +36,18 @@ public class RecipeApplication {
 	  
 	
 	public void writeToConsole() {
-		createUser.createAndSaveUser("Zsofi", "Zsofi123", "zsofi@gmail.com", "jelszo");
-		createUser.createAndSaveUser("Gabor", "Gabor123", "gabor@gmail.com", "jelszo");
-		
-		
-		createRecipe.createAndSaveRecipe("piritos", "so kenyer", "fozd", "img", RecipeType.type1, 1);
-		createRecipe.createAndSaveRecipe("hamburger", "hus pogacsa", "fozd es susd", "img", RecipeType.type3, 2);
-		
-		createIngredients.createAndSaveIngredients(1, "Só");
-		
-		saveRecipe.saveRecipes(1,1);
-		
-		System.out.println(getRecipes.getRandomRecipe().getName());
-		System.out.println(getRecipes.getOwnRecipes(2).get(0).getName()); 
-	} 
-	
+		userServices.createAndSaveUser("Wei Zsófia", "Zsofa", "zsofi@gmail.com", "12345");
+		userServices.createAndSaveUser("Balla Gábor", "Gabor123", "gabor@gmail.com", "12345");
+		userServices.createAndSaveUser("Kovács János", "Jani", "kjani@mail.com", "12345");
+		userServices.createAndSaveUser("Hajós Anna", "Annus", "annuska14@mail.com", "12345");
+		userServices.createAndSaveUser("Katona Kata", "KKatus", "kkatus@mail.com", "12345");
+		userServices.createAndSaveUser("Séf Róbert", "Robi", "robisef@mail.com", "12345"); 
 
+		recipeServices.createAndSaveRecipe("Zsíros kenyér hagymával", "só, kenyér, zsír, hagyma", "Kend", 0, 1);
+		recipeServices.createAndSaveRecipe("HATLAPOS SÜTEMÉNY KAKAÓS KRÉMMEL", "tej, rétesliszt, búzaliszt, zsír, porcukor, tojás, olvasztott méz, kristálycukor, víz, kakaópor, vaj, vaníliás cukor", "A tésztához meleg tejben felfuttatjuk a szalalkálit-", 2, 2);
+		recipeServices.createAndSaveRecipe("Hamburger", "buci, húspogácsa, sajt, uborka, paradicsom, ketchup, majonéz", "Süsd meg a pogácsákat, majd pakold a buciba kedved szerint válogatva hozzá a zöldségeket, szószokat", 1, 3);
+		recipeServices.createAndSaveRecipe("Kínai tésztaleves", "üvegtészta, zöldség, csirkealaplé", "Aprítsd fel a zöldséget, fõzd meg a tésztát, majd forrald fel az alaplevet, tedd bele a hozzávalokat és kész", 3, 4);
+		recipeServices.createAndSaveRecipe("Saláta", "saláta, paradicsom, uborka, paprika, hagyma, sajt, kenyér", "Pirítsd meg a kenyeret, vágd kockára a zöldségekkel együtt majd egy tálban keverd össze", 4, 5);
+		recipeServices.createAndSaveRecipe("Csokis pattogatott kukorica", "pattogatott kukorica, csoki", "Darabold fel a csokit, majd egy lábosba olajat öntünk, és a még ki nem pattogott kukoricákat a csokival együtt beletesszük. Fedõt rátéve sûrûn felrázva kipattogtatjuk.", 5, 6);
+	}
 }

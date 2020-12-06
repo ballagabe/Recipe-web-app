@@ -1,30 +1,34 @@
 package com.web.recipe.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Ingredients {
+public class SavedRecipe {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
 	private User user;
 	
-	private String name;
-	
+	@ManyToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
+	private Recipe recipe;
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public User getUser() {
 		return user;
 	}
@@ -33,11 +37,14 @@ public class Ingredients {
 		this.user = user;
 	}
 
-	public String getName() {
-		return name;
+	public Recipe getRecipe() {
+		return recipe;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setRecipe(Recipe recipe) {
+		this.recipe = recipe;
 	}
+	
+	
+
 }
